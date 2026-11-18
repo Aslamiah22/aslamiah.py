@@ -1,0 +1,49 @@
+# Program Pengelolaan Stok Barang Toko
+# TOKO SERBA ADA
+
+print("=" * 40)
+print("TOKO SERBA ADA - Sistem Stok Barang")
+print("=" * 40)
+
+# 1. Input Data
+nama_barang = input("Masukkan nama barang : ")
+stok = int(input("Masukkan jumlah stok awal : "))
+
+print(f"\nBarang {nama_barang} berhasil ditambahkan dengan stok awal {stok}")
+print("-" * 40)
+
+# 5. Perulangan - biar bisa transaksi berkali-kali
+while True:
+    # 2. Pilih Transaksi
+    print("\nPilih Transaksi:")
+    print("1. Barang Masuk")
+    print("2. Barang Keluar")
+    print("3. Selesai / Keluar")
+    pilihan = input("Masukkan pilihan (1/2/3) : ")
+
+    # 3. Proses Transaksi
+    if pilihan == "1":
+        jumlah = int(input("Masukkan jumlah barang masuk : "))
+        stok = stok + jumlah
+        print(f"Barang masuk berhasil! Stok {nama_barang} sekarang : {stok}")
+
+    elif pilihan == "2":
+        jumlah = int(input("Masukkan jumlah barang keluar : "))
+        # 4. Cek Stok
+        if jumlah > stok:
+            print("Stok Tidak Mencukupi!")
+            print(f"Stok {nama_barang} saat ini hanya : {stok}")
+        else:
+            stok = stok - jumlah
+            print(f"Barang keluar berhasil! Stok {nama_barang} sekarang : {stok}")
+
+    elif pilihan == "3":
+        break
+
+    else:
+        print("Pilihan tidak valid! Silakan pilih 1, 2, atau 3.")
+
+# 6. Tampilkan Hasil
+print("-" * 40)
+print("TRANSAKSI SELESAI")
+print(f"Jumlah stok akhir {nama_barang} : {stok}")
